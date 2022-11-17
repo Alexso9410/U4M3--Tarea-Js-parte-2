@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC >
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title> ::Contador de Caracteres- Ejercicio 2</title>
+
+<script type="text/javascript" language="javascript">
+
+function mostrarResultado(box,num_max,campospan){
+	var contagem_carac = box.length;
+	if (contagem_carac != 0){
+		document.getElementById(campospan).innerHTML = contagem_carac + " caracteres digitados";
+		if (contagem_carac == 1){
+			document.getElementById(campospan).innerHTML = contagem_carac + " caracter digitado";
+		}
+		if (contagem_carac >= num_max){
+			document.getElementById(campospan).innerHTML = "Limite de caracteres excedido!";
+		}
+	}else{
+		document.getElementById(campospan).innerHTML = "no hay ningun caracter escrito..";
+	}
+}
+function contarCaracteres(box,valor,campospan){
+	var conta = valor - box.length;
+	document.getElementById(campospan).innerHTML = "todavia puedes escribir " + conta + " caracteres";
+	if(box.length >= valor){
+		document.getElementById(campospan).innerHTML = "ya no puedes escribir mas caracteres..";
+		document.getElementById("campo").value = document.getElementById("campo").value.substr(0,valor);
+	}
+}
+
+</script>
+</head>
+
+<body>
+<form action="" method="post">
+<textarea cols="45" id="campo" rows="5" onkeyup="mostrarResultado(this.value,140,'spcontando');contarCaracteres(this.value,140,'sprestante')"></textarea><br />
+<span id="spcontando" style="font-family:Georgia;">Todavia no tenemos nada escrito..</span><br />
+<span id="sprestante" style="font-family:Georgia;"></span>
+</form>
+<br><br>
+
+</body>
+</html>
